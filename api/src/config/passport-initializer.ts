@@ -21,8 +21,6 @@ export const initializePassport = () => {
     )
 
   addPassportProvider(config.auth.providers.google, googleOauth2.Strategy, config.auth.google)
-  addPassportProvider(config.auth.providers.facebook, facebookStrategy, config.auth.facebook)
-  addPassportProvider(config.auth.providers.linkedIn, linkedInOauth2.Strategy, config.auth.linkedIn)
 
   passport.serializeUser(async (authenticationInfo, done) => {
     logger.info('serializing user')
