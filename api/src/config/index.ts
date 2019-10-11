@@ -10,22 +10,8 @@ export const config = {
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
       scope: ['https://www.googleapis.com/auth/userinfo.profile', , 'https://www.googleapis.com/auth/userinfo.email'],
     },
-    facebook: {
-      clientID: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
-      callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-      profileFields: ['id', 'name', 'short_name', 'photos', 'email'],
-    },
-    linkedIn: {
-      clientID: process.env.LINKEDIN_ID,
-      clientSecret: process.env.LINKEDIN_SECRET,
-      callbackURL: process.env.LINKEDIN_CALLBACK_URL,
-      scope: ['r_emailaddress', 'r_basicprofile'],
-    },
     providers: {
       google: 'googleProvider',
-      facebook: 'facebookProvider',
-      linkedIn: 'linkedInProvider',
     },
     successLoginRedirectUrl: process.env.SUCCESS_LOGIN_REDIRECT_URL,
   },

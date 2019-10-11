@@ -40,15 +40,9 @@ services:
       VIRTUAL_HOST: api.localtest.me
       VIRTUAL_PORT: 3000
       DATABASE_URL: postgres://user:password@db/api-db
-      FACEBOOK_ID: FACEBOOK_ID
-      FACEBOOK_SECRET: FACEBOOK_SECRET
-      GOOGLE_ID: GOOGLE_ID
-      GOOGLE_SECRET: GOOGLE_SECRET
-      LINKEDIN_ID: LINKEDIN_ID
-      LINKEDIN_SECRET: LINKEDIN_SECRET
+      GOOGLE_ID: 601030118764-9jreovbq1n6j26o9rsa3fp2hsjmuooft.apps.googleusercontent.com
+      GOOGLE_SECRET: chRPLjZhXLMdwHakQQKehcL6
       GOOGLE_CALLBACK_URL: http://api.localtest.me/api/auth/google/callback
-      FACEBOOK_CALLBACK_URL: http://api.localtest.me/api/auth/facebook/callback
-      LINKEDIN_CALLBACK_URL: http://api.localtest.me/api/auth/linkedin/callback
       SUCCESS_LOGIN_REDIRECT_URL: http://site.localtest.me/connect
       DATABASE_POOL_MIN: 0
       DATABASE_POOL_MAX: 10
