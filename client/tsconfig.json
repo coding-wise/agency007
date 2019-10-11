@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "build/dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "strict": false,
+    "allowSyntheticDefaultImports": false,
+    "noImplicitAny": false
+  },
+  "exclude": ["node_modules", "build", "scripts", "webpack", "__mocks__"]
+}
