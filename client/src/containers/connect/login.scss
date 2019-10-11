@@ -1,16 +1,43 @@
 .login {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  a > button {
-    margin-top: 1em;
-    width: 15em;
-    height: 5em;
-    border-radius: 5px;
+  .centered-content {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
 
-    &:hover {
-      border-color: grey;
+    img.logo {
+      width: 600px;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-size: 40px;
+      text-transform: uppercase;
+    }
+
+    a {
+      border: 2px solid #CEE0EA;
+      padding: 10px 20px;
+      color: #484349;
+      margin-top:3em;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 16px;
+
+      img {
+        width: 20px;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        border-color: #484349;
+      }
     }
   }
+
 }

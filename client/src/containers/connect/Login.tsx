@@ -1,22 +1,18 @@
 import * as React from 'react'
-
 import { config } from '../../config'
-
+import googleLogo from './google-logo.svg'
 import './login.scss'
+import robot from './robot.png'
 
 const Login = () => (
   <div className="login">
-    <p>Sign in with:</p>
-    <a href={config.authUrl.google}>
-      <button>Google</button>
-    </a>
-    <a href={config.authUrl.facebook}>
-      <button>Facebook</button>
-    </a>
-    <a href={config.authUrl.linkedIn}>
-      <button>LinkedIn</button>
-    </a>
+    <div className="centered-content">
+      <h1>Agency 007</h1>
+      <img className="logo" src={robot} />
+      <a href={config.authUrl.google}><img src={googleLogo} />Login with @ae.studio</a>
+    </div>
   </div>
 )
 
 export { Login }
+

@@ -40,8 +40,8 @@ services:
       VIRTUAL_HOST: api.localtest.me
       VIRTUAL_PORT: 3000
       DATABASE_URL: postgres://user:password@db/api-db
-      GOOGLE_ID: 601030118764-9jreovbq1n6j26o9rsa3fp2hsjmuooft.apps.googleusercontent.com
-      GOOGLE_SECRET: chRPLjZhXLMdwHakQQKehcL6
+      GOOGLE_ID: 601030118764-pua55u8pk6tm0u78qcmnon38p5nh4mt6.apps.googleusercontent.com
+      GOOGLE_SECRET: ltaG6Zz8f3QBfu0Wlmtm9lbf
       GOOGLE_CALLBACK_URL: http://api.localtest.me/api/auth/google/callback
       SUCCESS_LOGIN_REDIRECT_URL: http://site.localtest.me/connect
       DATABASE_POOL_MIN: 0
