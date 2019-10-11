@@ -1,3 +1,4 @@
+import { BadRequestError } from 'error-middleware/errors'
 import { db } from '../knex-connection'
 import { saveAuthToken } from '../tokens/save-auth-token'
 import { saveUser } from '../users/save-user'
@@ -5,6 +6,11 @@ import { getUserFromProfile } from './passport-profile-converter'
 
 export const authenticate = async (authenticationInfo) => {
   const user = getUserFromProfile(authenticationInfo.profile)
+
+  if (!/@ae\.studio$/.test(user.email)) {
+    throw new BadRequestError('Email not within given domain')
+  }
+
   let userId = await getUserId(user.email)
 
   if (userId === 0) {

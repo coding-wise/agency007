@@ -25,7 +25,13 @@ export const initializePassport = () => {
   passport.serializeUser(async (authenticationInfo, done) => {
     logger.info('serializing user')
 
-    await authenticate(authenticationInfo)
+    try {
+      await authenticate(authenticationInfo)
+    } catch (err) {
+      done(err, authenticationInfo)
+
+      return
+    }
 
     done(null, authenticationInfo)
   })
@@ -33,7 +39,13 @@ export const initializePassport = () => {
   passport.deserializeUser(async (authenticationInfo, done) => {
     logger.info('deserializing user')
 
-    await authenticate(authenticationInfo)
+    try {
+      await authenticate(authenticationInfo)
+    } catch (err) {
+      done(err, authenticationInfo)
+
+      return
+    }
 
     done(null, authenticationInfo)
   })
