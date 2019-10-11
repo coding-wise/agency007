@@ -1,0 +1,25 @@
+.pending-approval {
+  display: flex;
+  height: 100%;
+
+  .centered-content {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 300px;
+      max-width: 100%;
+    }
+
+    p {
+      margin-top: 50px;
+      font-size: 25px;
+      line-height: 35px;
+      letter-spacing: 1.2px;
+      color: #484349;
+      text-align: center;
+    }
+  }
+}

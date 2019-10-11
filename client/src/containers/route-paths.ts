@@ -4,5 +4,6 @@ export const routePaths = {
   login: '/login',
   private: {
     root: '/logged-user',
+    pending: '/pending-approval',
   },
 }
