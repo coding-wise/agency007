@@ -15,6 +15,7 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "redux-thunk-actions": "github:wgrisa/redux-thunk-actions",
+    "request": "^2.88.0",
     "store": "^2.0.12",
     "typescript": "^3.6.4"
   },
