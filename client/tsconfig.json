@@ -3,7 +3,10 @@
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -14,7 +17,21 @@
     "noUnusedLocals": true,
     "strict": false,
     "allowSyntheticDefaultImports": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "exclude": ["node_modules", "build", "scripts", "webpack", "__mocks__"]
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "webpack",
+    "__mocks__"
+  ],
+  "include": [
+    "src"
+  ]
 }
