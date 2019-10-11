@@ -1,9 +1,18 @@
 import * as React from 'react'
-import '../../config'
-import './home.scss'
+import robot from '../../shared/assets/robot.png'
+import './pending-approval.scss'
 
-const PendingApproval = () => {
-  return <div>Hi</div>
-}
+const PendingApproval = () => (
+  <div className="pending-approval">
+    <div className="centered-content">
+      <img className="logo" alt="" src={robot} />
+      <p>
+        You are almost there!
+        <br />
+        Ask someone more important than you for permissions.
+      </p>
+    </div>
+  </div>
+)
 
 export { PendingApproval }

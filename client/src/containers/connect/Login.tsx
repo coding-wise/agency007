@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { config } from '../../config'
+import robot from '../shared/assets/robot.png'
 import googleLogo from './google-logo.svg'
 import './login.scss'
-import robot from './robot.png'
 
 const Login = () => (
   <div className="login">
