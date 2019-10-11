@@ -2,6 +2,9 @@
   "name": "aeboilerplate",
   "version": "1.0.0",
   "description": "AEboilerplate is an opinionated boilerplate that creates a full-stack React/Node Typescript project, with independent client and API structures in the same repository, ready to run and deploy with a neat and tidy base.",
+  "engines": {
+    "node": "11.10.x"
+  },
   "scripts": {
     "\n# AEboilerplate commands": "",
     "aeboilerplate": "npm i && rimraf .git && npm run api-npm i && npm run docker-stop && npm run generator && rimraf generator",
@@ -17,7 +20,7 @@
     "\n# Client commands": "",
     "build-client": "npm i --prefix client --only=dev && npm i --prefix client && npm run build --prefix client",
     "client-npm": "docker-compose run --rm site npm",
-    "client-test": "npm run test --prefix client",
+    "client-t est": "npm run test --prefix client",
     "ctw": "npm run client-test",
     "\n# Container commands": "",
     "docker-stop": "docker-compose stop",
