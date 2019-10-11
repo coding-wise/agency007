@@ -2,6 +2,9 @@
   "name": "api-ae-node-boilerplate",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "8.15.1"
+  },
   "scripts": {
     "start": "npm run migrate && npm run seed && ts-node ./src/server.ts",
     "dev": "npm run migrate && npm run seed && ts-node-dev --poll --no-notify ./src/server.ts",
