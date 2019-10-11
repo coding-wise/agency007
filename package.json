@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "AEboilerplate is an opinionated boilerplate that creates a full-stack React/Node Typescript project, with independent client and API structures in the same repository, ready to run and deploy with a neat and tidy base.",
   "engines": {
-    "node": "11.10.x"
+    "node": "8.15.1"
   },
   "scripts": {
     "\n# AEboilerplate commands": "",
@@ -31,7 +31,7 @@
     "dsa": "npm run docker-stop-all",
     "docker-prune-network": "docker network prune",
     "\n# General commands": "After executing the `npm run aeboilerplate` command, run `npm build && npm start` to use the built version",
-    "install-dependencies": "npm i && npm run client-npm-i && npm run api-npm-i && npm run stop-containers",
+    "install-dependencies": "npm i && npm run client-npm && npm run api-npm && npm run stop-containers",
     "i": "npm run install-dependencies",
     "build": "npm i && npm run build-client && npm run build-api",
     "heroku-postbuild": "npm run build",
