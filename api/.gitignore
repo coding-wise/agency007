@@ -5,3 +5,6 @@ db/local_database_volume
 .DS_Store
 coverage/
 Thumbs.db
+
+# config
+.env

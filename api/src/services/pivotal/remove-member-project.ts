@@ -1,5 +1,5 @@
 import { provider } from './provider'
 
-export const removeMemberProject = (projectId: number, membershipId: number) => {
-  return provider.delete(`/projects/${projectId}/memberships/${membershipId}`)
+export const removeMemberProject = async (projectId: number, membershipId: number) => {
+  await provider.delete(`/projects/${projectId}/memberships/${membershipId}`)
 }

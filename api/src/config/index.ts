@@ -1,3 +1,8 @@
+import * as dotenv from 'dotenv'
+import * as path from 'path'
+
+dotenv.config({ path: path.resolve(__dirname, '../..', '.env') })
+
 export const config = {
   http: {
     host: process.env.HTTP_HOST || '0.0.0.0',
@@ -45,6 +50,7 @@ export const config = {
     pivotal: {
       url: 'https://www.pivotaltracker.com/services/v5',
       token: process.env.PIVOTAL_TOKEN,
+      accountId: +process.env.PIVOTAL_ACCOUNT_ID || 1115016,
     },
   },
 }

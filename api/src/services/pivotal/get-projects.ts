@@ -1,7 +1,8 @@
+import { config } from '../../config'
 import { provider } from './provider'
 
-const accountId = 1115016
+export const getProjects = async () => {
+  const { data } = await provider.get(`/projects/?account_ids=${config.integrations.pivotal.accountId}`)
 
-export const getProjects = () => {
-  return provider.get(`/projects/?account_ids=${accountId}`)
+  return data
 }
