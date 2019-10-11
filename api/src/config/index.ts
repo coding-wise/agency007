@@ -41,4 +41,10 @@ export const config = {
       directory: `${__dirname}/../../db/pg/seeds`,
     },
   },
+  integrations: {
+    pivotal: {
+      url: 'https://www.pivotaltracker.com/services/v5',
+      token: process.env.PIVOTAL_TOKEN,
+    },
+  },
 }
