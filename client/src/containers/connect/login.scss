@@ -13,21 +13,28 @@
     }
 
     h1 {
-      font-size: 40px;
+      font-size: 50px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
+      color: #484349;
+      color: transparent;
+      background: #484349;
+      background-clip: text;
+      text-shadow: 0px 3px 3px rgba(206, 224, 234, 0.7);
     }
 
     a {
-      border: 2px solid #CEE0EA;
+      border: 2px solid #cee0ea;
       padding: 10px 20px;
       color: #484349;
-      margin-top:3em;
+      margin-top: 3em;
       border-radius: 5px;
       cursor: pointer;
       display: flex;
       align-items: center;
       text-decoration: none;
       font-size: 16px;
+      transition: border 0.6s;
 
       img {
         width: 20px;
@@ -36,8 +43,8 @@
 
       &:hover {
         border-color: #484349;
+        transition: border 0.6s;
       }
     }
   }
-
 }

@@ -8,11 +8,13 @@ const Login = () => (
   <div className="login">
     <div className="centered-content">
       <h1>Agency 007</h1>
-      <img className="logo" src={robot} />
-      <a href={config.authUrl.google}><img src={googleLogo} />Login with @ae.studio</a>
+      <img className="logo" alt="" src={robot} />
+      <a href={config.authUrl.google}>
+        <img src={googleLogo} alt="" />
+        Login with @ae.studio
+      </a>
     </div>
   </div>
 )
 
 export { Login }
-
