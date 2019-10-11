@@ -47,4 +47,4 @@ As we continue to maintain this project, we would love to hear from you. If you 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/agencyenterprise/aeboilerplate/blob/master/LICENCE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/agencyenterprise/aeboilerplate/blob/master/LICENCE.md) file for details.
