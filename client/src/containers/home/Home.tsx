@@ -12,22 +12,28 @@ type Dispatchers = ReturnType<typeof mapDispatchToProps>
 type State = ReturnType<typeof mapStateToProps>
 
 class HomeComponent extends React.Component<Dispatchers & State, any> {
-  componentWillMount() {
+  componentDidMount() {
     const { getMe } = this.props
 
     getMe()
   }
 
   render() {
-    const { me } = this.props
+    const {
+      me: { loading, data },
+    } = this.props
 
-    if (me.loading) return <Loader />
+    if (loading) return <Loader />
 
-    if (me.data.isAdmin) {
+    if (!data.email) {
       return <Redirect to={routePaths.login} />
     }
 
-    return <Redirect to={routePaths.private.pending} />
+    if (!data.is_admin) {
+      return <Redirect to={routePaths.private.pending} />
+    }
+
+    return <Redirect to={routePaths.private.projects} />
   }
 }
 

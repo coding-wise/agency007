@@ -1,6 +1,5 @@
 import { handleActions } from 'redux-actions'
 import { createActionThunk } from 'redux-thunk-actions'
-
 import { getMeData } from '../../api/me/get-me'
 
 export const initialState = {
