@@ -5,5 +5,6 @@ export const routePaths = {
   private: {
     root: '/logged-user',
     pending: '/pending-approval',
+    projects: '/projects',
   },
 }
