@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../redux/projects'
 import { Loader } from '../shared/loader/Loader'
 import './projects.scss'
+import { faUsers, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
 type State = ReturnType<typeof mapStateToProps>
@@ -42,10 +44,10 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
               <div className="name">{project.name}</div>
               <div className="actions">
                 <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
-                  edit members
+                  <FontAwesomeIcon icon={faUsers} />
                 </button>
                 <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
-                  edit project
+                  <FontAwesomeIcon icon={faEdit} />
                 </button>
               </div>
             </div>

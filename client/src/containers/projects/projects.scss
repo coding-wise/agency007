@@ -45,6 +45,11 @@
           padding: 10px;
           background-color: #cedfea;
           border: 0;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
     }
