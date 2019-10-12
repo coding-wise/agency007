@@ -19,10 +19,10 @@ class HomeComponent extends React.Component<Dispatchers & State, any> {
 
   render() {
     const {
-      me: { loading, data },
+      me: { data, cat },
     } = this.props
 
-    if (loading) return <Loader />
+    if (!cat) return <Loader />
 
     if (!data.email) {
       return <Redirect to={routePaths.login} />
