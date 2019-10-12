@@ -4,9 +4,20 @@ import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../redux/projects/get-projects'
 import './projects.scss'
 
-export class ProjectsComponent extends React.Component<any, any> {
+type Dispatchers = ReturnType<typeof mapDispatchToProps>
+type State = ReturnType<typeof mapStateToProps>
+
+export class ProjectsComponent extends React.Component<Dispatchers & State & { history: any }, any> {
   componentDidMount() {
     this.props.getProjects()
+  }
+
+  redirectToEditProjectMembers(id: number) {
+    this.props.history.push(`/projects/${id}/members`)
+  }
+
+  redirectToEditProject(id: number) {
+    this.props.history.push(`/projects/${id}`)
   }
 
   render() {
@@ -27,8 +38,12 @@ export class ProjectsComponent extends React.Component<any, any> {
           <div key={project.id} className="project">
             <div className="name">{project.name}</div>
             <div className="actions">
-              <div className="edit-members">👨‍👨‍👦‍👦</div>
-              <div className="edit">✏️</div>
+              <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
+                👨‍👨‍👦‍👦
+              </button>
+              <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
+                ✏️
+              </button>
             </div>
           </div>
         ))}
