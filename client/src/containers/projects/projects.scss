@@ -38,8 +38,12 @@
         display: flex;
 
         button {
-          margin-right: 1em;
           font-size: 0.7em;
+          margin-left: 1em;
+          font-size: 0.7em;
+          padding: 10px;
+          background-color: #cedfea;
+          border: 0;
         }
       }
     }
