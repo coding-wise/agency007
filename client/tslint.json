@@ -26,6 +26,7 @@
     "no-default-export": true,
     "no-console": true,
     "no-unnecessary-type-annotation": true,
+    "jsx-a11y/accessible-emoji": false,
     "quotemark": [true, "single", "jsx-double"],
     "ordered-imports": [
       true,

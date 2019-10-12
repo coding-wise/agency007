@@ -41,9 +41,11 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
               <div className="name">{project.name}</div>
               <div className="actions">
                 <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
+                  {/* eslint-disable-next-line */}
                   👨‍👨‍👦‍👦
                 </button>
                 <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
+                  {/* eslint-disable-next-line */}
                   ✏️
                 </button>
               </div>

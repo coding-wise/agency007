@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { createAction, handleActions } from 'redux-actions'
 import { createActionThunk } from 'redux-thunk-actions'
 import { getMeData } from '../../api/me/get-me'
 
@@ -9,6 +9,7 @@ export const initialState = {
 }
 
 export const getMe = createActionThunk('GET_ME', () => getMeData())
+export const clearMe = createAction('CLEAR_ME')
 
 export const me = handleActions(
   {
@@ -29,6 +30,7 @@ export const me = handleActions(
       ...state,
       loading: false,
     }),
+    CLEAR_ME: () => initialState,
   },
   initialState,
 )
