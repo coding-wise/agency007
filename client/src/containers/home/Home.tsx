@@ -6,7 +6,6 @@ import '../../config'
 import { getMe } from '../../redux/ducks/get-me'
 import { routePaths } from '../route-paths'
 import { Loader } from '../shared/loader/Loader'
-import './home.scss'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
 type State = ReturnType<typeof mapStateToProps>

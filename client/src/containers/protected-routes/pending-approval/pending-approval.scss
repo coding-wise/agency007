@@ -29,6 +29,14 @@
     background-color: transparent;
     padding: 5px 10px;
     cursor: pointer;
+    margin-top: 20px;
+    outline: none;
+    transition: border-color 0.4s;
+
+    &:hover {
+      border: 1px solid #484349;
+      transition: border-color 0.4s;
+    }
 
     img {
       width: 25px;
