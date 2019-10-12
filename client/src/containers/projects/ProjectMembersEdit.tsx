@@ -4,6 +4,8 @@ import { RouteComponentProps } from 'react-router'
 import Select from 'react-select'
 import { bindActionCreators } from 'redux'
 import { getProjectAction } from '../../redux/projects'
+import { addMemberProjectAction } from '../../redux/projects/add-member-project'
+import { removeMemberProjectAction } from '../../redux/projects/remove-member-project'
 import { Loader } from '../shared/loader/Loader'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
@@ -11,10 +13,33 @@ type State = ReturnType<typeof mapStateToProps>
 type RouteParams = RouteComponentProps<{ id: string }>
 
 export class ProjectMemberEditComponent extends React.Component<Dispatchers & State & RouteParams, any> {
-  componentDidMount() {
+  get projectId() {
     const { id } = this.props.match.params
 
-    this.props.getProject(id)
+    return id
+  }
+
+  componentDidMount() {
+    this.props.getProject(this.projectId)
+  }
+
+  addMember(email: string) {
+    this.props.addMemberProject(this.projectId, email)
+  }
+
+  removeMember(membershipId: number) {
+    this.props.removeMemberProject(this.projectId, membershipId)
+  }
+
+  onChange = (_, valueMeta) => {
+    switch (valueMeta.action) {
+      case 'select-option':
+        this.addMember(valueMeta.option.label)
+        break
+      case 'remove-value':
+        this.removeMember(valueMeta.removedValue.value)
+        break
+    }
   }
 
   render() {
@@ -36,6 +61,7 @@ export class ProjectMemberEditComponent extends React.Component<Dispatchers & St
           <h3>Pivotal</h3>
 
           <Select
+            onChange={this.onChange}
             isMulti={true}
             options={project.members.pivotal.map((membership) => ({
               value: membership.id,
@@ -48,12 +74,6 @@ export class ProjectMemberEditComponent extends React.Component<Dispatchers & St
                 label: membership.person.email,
               }))}
           />
-
-          <ul>
-            {project.members.pivotal.map((membership) => (
-              <li key={membership.id}>{membership.person.email}</li>
-            ))}
-          </ul>
         </div>
       </>
     )
@@ -69,6 +89,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getProject: bindActionCreators(getProjectAction, dispatch),
+    addMemberProject: bindActionCreators(addMemberProjectAction, dispatch),
+    removeMemberProject: bindActionCreators(removeMemberProjectAction, dispatch),
   }
 }
 
