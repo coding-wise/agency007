@@ -28,7 +28,19 @@ export class ProjectMemberEditComponent extends React.Component<Dispatchers & St
       return <div>Project not found.</div>
     }
 
-    return <div className="project">project {project.name} members</div>
+    return (
+      <>
+        <h2>Adding members to {project.name} project</h2>
+        <div>
+          <h3>Pivotal</h3>
+          <ul>
+            {project.members.pivotal.map((membership) => (
+              <li key={membership.id}>{membership.person.email}</li>
+            ))}
+          </ul>
+        </div>
+      </>
+    )
   }
 }
 
