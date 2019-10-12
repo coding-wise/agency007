@@ -4,7 +4,7 @@ import { getProjects } from '../../api/projects/get-projects'
 
 export const initialState = {
   projects: [],
-  loading: false,
+  loading: true,
   error: null,
 }
 

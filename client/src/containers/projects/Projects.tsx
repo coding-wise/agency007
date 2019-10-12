@@ -10,9 +10,24 @@ export class ProjectsComponent extends React.Component<any, any> {
   }
 
   render() {
-    console.log(this.props)
+    const { loading } = this.props.projects
+    const { data: projects } = this.props.projects
 
-    return <span>Project list</span>
+    if (loading) {
+      return <div>Loading...</div>
+    }
+
+    if (!projects || !projects.length) {
+      return <div>You have no projects, create one first.</div>
+    }
+
+    return (
+      <>
+        {projects.map((project) => (
+          <div key={project.id}>{project.name}</div>
+        ))}
+      </>
+    )
   }
 }
 

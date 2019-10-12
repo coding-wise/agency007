@@ -6,7 +6,5 @@ export const getProjects = async () => {
     url: '/projects',
   })
 
-  console.log('data', data)
-
   return { data }
 }

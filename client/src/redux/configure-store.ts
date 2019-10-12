@@ -4,10 +4,12 @@ import thunk from 'redux-thunk'
 
 import { authentication } from './ducks/authenticate'
 import { me } from './ducks/get-me'
+import { projects } from './projects/get-projects'
 
 const ducks = combineReducers({
   authentication,
   me,
+  projects,
 })
 
 const configureStore = () => createStore(ducks, composeWithDevTools(applyMiddleware(thunk)))
