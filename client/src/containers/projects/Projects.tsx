@@ -35,6 +35,7 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
 
     return (
       <div className="projects">
+        <h1>Projects</h1>
         <div className="projects-container">
           {projects.map((project) => (
             <div key={project.id} className="project">
