@@ -5,7 +5,7 @@ export const addMemberProjectAction = createActionThunk('ADD_MEMBER_PROJECT', (i
   addMemberPivotal(id, email),
 )
 
-export const handleGetProject = {
+export const handleAddMemberProject = {
   [addMemberProjectAction.STARTED]: (state) => ({
     ...state,
     loading: true,

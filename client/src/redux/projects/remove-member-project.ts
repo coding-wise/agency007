@@ -5,7 +5,7 @@ export const removeMemberProjectAction = createActionThunk('REMOVE_MEMBER_PROJEC
   removeMemberPivotal(id, membershipId),
 )
 
-export const handleGetProject = {
+export const handleRemoveMemberProject = {
   [removeMemberProjectAction.STARTED]: (state) => ({
     ...state,
     loading: true,
