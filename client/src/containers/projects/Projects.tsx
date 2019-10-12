@@ -2,6 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../redux/projects/get-projects'
+import { Loader } from '../shared/loader/Loader'
 import './projects.scss'
 
 export class ProjectsComponent extends React.Component<any, any> {
@@ -14,7 +15,7 @@ export class ProjectsComponent extends React.Component<any, any> {
     const { data: projects } = this.props.projects
 
     if (loading) {
-      return <div>Loading...</div>
+      return <Loader />
     }
 
     if (!projects || !projects.length) {
