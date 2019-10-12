@@ -24,7 +24,13 @@ export class ProjectsComponent extends React.Component<any, any> {
     return (
       <>
         {projects.map((project) => (
-          <div key={project.id}>{project.name}</div>
+          <div key={project.id} className="project">
+            <div className="name">{project.name}</div>
+            <div className="actions">
+              <div className="edit-members">👨‍👨‍👦‍👦</div>
+              <div className="edit">✏️</div>
+            </div>
+          </div>
         ))}
       </>
     )

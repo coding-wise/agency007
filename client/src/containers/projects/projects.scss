@@ -1,3 +1,25 @@
-.asdf {
-  color: red;
+.project {
+  display: flex;
+
+  .name {
+    flex: 1;
+    font-size: 2em;
+  }
+
+  .actions {
+    display: flex;
+    width: 300px;
+
+    > div {
+      margin-left: 1em;
+    }
+
+    .edit-members {
+      font-size: 2em;
+    }
+
+    .edit {
+      font-size: 2em;
+    }
+  }
 }
