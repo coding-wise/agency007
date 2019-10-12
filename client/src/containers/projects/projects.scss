@@ -32,16 +32,9 @@
       .actions {
         display: flex;
 
-        > div {
+        button {
           margin-right: 1em;
-        }
-
-        .edit-members {
-          font-size: 2em;
-        }
-
-        .edit {
-          font-size: 2em;
+          font-size: 0.7em;
         }
       }
     }

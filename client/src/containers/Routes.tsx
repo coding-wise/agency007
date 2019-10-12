@@ -1,12 +1,13 @@
 import * as React from 'react'
 import { Switch } from 'react-router-dom'
-import { ProtectedRoute } from './ProtectedRoute'
-import { PublicRoute } from './PublicRoute'
 import { Connect } from './connect/Connect'
 import { Login } from './connect/Login'
 import { Home } from './home/Home'
+import { ProjectMemberEdit } from './projects/ProjectMembersEdit'
 import { Projects } from './projects/Projects'
 import { PendingApproval } from './protected-routes/pending-approval/PendingApproval'
+import { ProtectedRoute } from './ProtectedRoute'
+import { PublicRoute } from './PublicRoute'
 import { routePaths } from './route-paths'
 
 const Routes = () => {
@@ -17,6 +18,8 @@ const Routes = () => {
       <PublicRoute exact path={routePaths.connect} component={Connect} />
       <ProtectedRoute exact path={routePaths.private.pending} component={PendingApproval} />
       <ProtectedRoute exact path={routePaths.private.projects} component={Projects} />
+      <ProtectedRoute exact path={routePaths.private.projectsEdit} component={Projects} />
+      <ProtectedRoute exact path={routePaths.private.projectMembershipsEdit} component={ProjectMemberEdit} />
     </Switch>
   )
 }

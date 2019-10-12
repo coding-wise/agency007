@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getProjectsAction } from '../../redux/projects/get-projects'
+import { getProjectsAction } from '../../redux/projects'
 import { Loader } from '../shared/loader/Loader'
 import './projects.scss'
 
@@ -41,12 +41,10 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
               <div className="name">{project.name}</div>
               <div className="actions">
                 <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
-                  {/* eslint-disable-next-line */}
-                  👨‍👨‍👦‍👦
+                  edit members
                 </button>
                 <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
-                  {/* eslint-disable-next-line */}
-                  ✏️
+                  edit project
                 </button>
               </div>
             </div>
