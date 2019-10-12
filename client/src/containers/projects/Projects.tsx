@@ -10,7 +10,10 @@ export class ProjectsComponent extends React.Component<any, any> {
   }
 
   render() {
-    const { loading } = this.props.projects
+    const {
+      projects: { loading },
+      history,
+    } = this.props
     const { data: projects } = this.props.projects
 
     if (loading) {
@@ -23,12 +26,13 @@ export class ProjectsComponent extends React.Component<any, any> {
 
     return (
       <>
+        <button onClick={() => history.push('/add-project')}>Add project</button>
         {projects.map((project) => (
           <div key={project.id} className="project">
             <div className="name">{project.name}</div>
             <div className="actions">
-              <div className="edit-members">👨‍👨‍👦‍👦</div>
-              <div className="edit">✏️</div>
+              <div className="edit-members">Add</div>
+              <div className="edit">Edit</div>
             </div>
           </div>
         ))}
