@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { Switch } from 'react-router-dom'
+import { ProtectedRoute } from './ProtectedRoute'
+import { PublicRoute } from './PublicRoute'
 import { Connect } from './connect/Connect'
 import { Login } from './connect/Login'
 import { Home } from './home/Home'
 import { ProjectMemberEdit } from './projects/ProjectMembersEdit'
 import { Projects } from './projects/Projects'
 import { PendingApproval } from './protected-routes/pending-approval/PendingApproval'
-import { ProtectedRoute } from './ProtectedRoute'
-import { PublicRoute } from './PublicRoute'
 import { routePaths } from './route-paths'
 
 const Routes = () => {
