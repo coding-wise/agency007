@@ -2,6 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../redux/projects/get-projects'
+import { Loader } from '../shared/loader/Loader'
 import './projects.scss'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
@@ -25,7 +26,7 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
     const { data: projects } = this.props.projects
 
     if (loading) {
-      return <div>Loading...</div>
+      return <Loader />
     }
 
     if (!projects || !projects.length) {
