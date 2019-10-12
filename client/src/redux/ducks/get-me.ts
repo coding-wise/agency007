@@ -9,7 +9,7 @@ export const initialState = {
 }
 
 export const getMe = createActionThunk('GET_ME', () => getMeData())
-export const clearMe = createAction('CLEAR_ME')
+export const clearMeAction = createAction('CLEAR_ME')
 
 export const me = handleActions(
   {
@@ -30,7 +30,7 @@ export const me = handleActions(
       ...state,
       loading: false,
     }),
-    CLEAR_ME: () => initialState,
+    [clearMeAction]: () => initialState,
   },
   initialState,
 )

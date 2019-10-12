@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { logoutAction } from '../../../../redux/ducks/authenticate'
-import { clearMe } from '../../../../redux/ducks/get-me'
+import { clearMeAction } from '../../../../redux/ducks/get-me'
 import './menu.scss'
 class MenuComponent extends React.Component<any, any> {
   logout = () => {
@@ -28,7 +28,7 @@ class MenuComponent extends React.Component<any, any> {
 const mapDispatchToProps = (dispatch) => {
   return {
     logoutAction: bindActionCreators(logoutAction, dispatch),
-    clearMe: bindActionCreators(clearMe, dispatch),
+    clearMe: bindActionCreators(clearMeAction, dispatch),
   }
 }
 
