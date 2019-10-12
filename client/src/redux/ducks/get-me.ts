@@ -4,8 +4,8 @@ import { createActionThunk } from 'redux-thunk-actions'
 import { getMeData } from '../../api/me/get-me'
 
 export const initialState = {
-  me: {},
-  loading: false,
+  data: {},
+  loading: true,
   error: null,
 }
 
@@ -19,7 +19,7 @@ export const me = handleActions(
     }),
     [getMe.SUCCEEDED]: (state, action) => ({
       ...state,
-      me: action.payload.me,
+      data: action.payload.me,
     }),
     [getMe.FAILED]: (state, action) => ({
       ...state,
