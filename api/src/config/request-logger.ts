@@ -23,7 +23,7 @@ const setupRequestId = (app) => {
 }
 
 const addMorganTokens = () => {
-  morgan.token('id', (req) => httpContext.get('reqId').split('-')[0])
+  morgan.token('id', (req) => (httpContext.get('reqId') || '').split('-')[0])
   morgan.token('json-body', (req) => JSON.stringify(req.body))
   morgan.token('json-query', (req) => JSON.stringify(req.query))
 }
