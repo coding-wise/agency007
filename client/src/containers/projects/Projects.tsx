@@ -34,21 +34,23 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
     }
 
     return (
-      <>
-        {projects.map((project) => (
-          <div key={project.id} className="project">
-            <div className="name">{project.name}</div>
-            <div className="actions">
-              <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
-                👨‍👨‍👦‍👦
-              </button>
-              <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
-                ✏️
-              </button>
+      <div className="projects">
+        <div className="projects-container">
+          {projects.map((project) => (
+            <div key={project.id} className="project">
+              <div className="name">{project.name}</div>
+              <div className="actions">
+                <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
+                  👨‍👨‍👦‍👦
+                </button>
+                <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
+                  ✏️
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </>
+          ))}
+        </div>
+      </div>
     )
   }
 }
