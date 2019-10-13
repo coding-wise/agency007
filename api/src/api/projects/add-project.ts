@@ -4,5 +4,5 @@ export const addProjectHandler = async (req, res) => {
   const { projectName, pivotalId } = req.body
   addProject(projectName, pivotalId)
 
-  return res.sendStatus(200)
+  return res.sendStatus(201)
 }

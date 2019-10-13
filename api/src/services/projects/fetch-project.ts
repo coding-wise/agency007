@@ -22,7 +22,7 @@ export const fetchProject = async (id: number) => {
           (membership) => membership.person.id === pivotalProjectMember.person.id,
         )
 
-        if (index !== -1) {
+        if (index !== -1 && project.members.pivotal[index].person.username !== 'agency007') {
           project.members.pivotal[index] = { ...pivotalProjectMember, selected: true }
         }
       }
