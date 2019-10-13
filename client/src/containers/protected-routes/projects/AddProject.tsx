@@ -35,7 +35,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
 
     this.state = {
       projectName: (props.currentProject && props.currentProject.name) || '',
-      pivotalId: (props.currentProject && props.currentProject.pivotal[0]) || undefined,
+      pivotalId: (props.currentProject && props.currentProject.pivotal && props.currentProject.pivotal[0]) || undefined,
       operation: Operation.create,
     }
   }
@@ -59,15 +59,15 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
     this.props.clearCurrentProject()
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault()
     const { addProject, history, updateProject } = this.props
     const { operation } = this.state
 
     if (operation === Operation.create) {
-      addProject(this.state)
+      await addProject(this.state)
     } else {
-      updateProject(this.state)
+      await updateProject(this.state)
     }
 
     history.push(routePaths.private.projects)
