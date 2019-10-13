@@ -7,5 +7,7 @@ export const routePaths = {
     pending: '/pending-approval',
     projects: '/projects',
     addProject: '/add-project',
+    projectsEdit: '/projects/:id',
+    projectMembershipsEdit: '/projects/:id/members',
   },
 }

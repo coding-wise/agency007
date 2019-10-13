@@ -4,6 +4,7 @@ import * as store from 'store'
 
 import { config } from '../config'
 import { routePaths } from './route-paths'
+import { Layout } from './shared/layout/Layout'
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => {
   const isLoggedIn = !!store.get(config.localStorageKeys.token)
@@ -11,7 +12,9 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
 
   const renderComponent = (props) => (
     <main>
-      <Component {...props} />
+      <Layout>
+        <Component {...props} />
+      </Layout>
     </main>
   )
 

@@ -5,4 +5,3 @@ import './app.scss'
 const App = () => <Routes />
 
 export { App }
-

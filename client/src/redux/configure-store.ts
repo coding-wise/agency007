@@ -4,8 +4,8 @@ import thunk from 'redux-thunk'
 
 import { authentication } from './ducks/authenticate'
 import { me } from './ducks/get-me'
+import { projects } from './projects'
 import { pivotalProjects } from './projects/get-pivotal-projects'
-import { projects } from './projects/get-projects'
 
 const ducks = combineReducers({
   authentication,

@@ -1,0 +1,41 @@
+.menu {
+  width: 352px;
+  background-color: #cee0ea;
+  position: fixed;
+  height: 100%;
+  align-items: flex-end;
+  display: flex;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(/robot.png);
+    background-position: 50px 50%;
+    background-repeat: no-repeat;
+    background-size: 600px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    z-index: 1;
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 0;
+    background-color: #484349;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

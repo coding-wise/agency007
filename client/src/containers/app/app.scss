@@ -1,11 +1,19 @@
+@import './reset.scss';
+
 html,
 body,
 #root,
 main {
-  height: 100%
+  height: 100%;
 }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #484349;
+  margin: 0;
+  padding: 0;
+}
+
+main > div {
+  height: 100%;
 }

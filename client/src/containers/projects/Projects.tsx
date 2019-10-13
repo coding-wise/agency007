@@ -1,12 +1,27 @@
+import { faEdit, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getProjectsAction } from '../../redux/projects/get-projects'
+import { getProjectsAction } from '../../redux/projects'
+import { routePaths } from '../route-paths'
+import { Loader } from '../shared/loader/Loader'
 import './projects.scss'
 
-export class ProjectsComponent extends React.Component<any, any> {
+type Dispatchers = ReturnType<typeof mapDispatchToProps>
+type State = ReturnType<typeof mapStateToProps>
+
+export class ProjectsComponent extends React.Component<Dispatchers & State & { history: any }, any> {
   componentDidMount() {
     this.props.getProjects()
+  }
+
+  redirectToEditProjectMembers(id: number) {
+    this.props.history.push(`/projects/${id}/members`)
+  }
+
+  redirectToEditProject(id: number) {
+    this.props.history.push(`/projects/${id}`)
   }
 
   render() {
@@ -17,7 +32,7 @@ export class ProjectsComponent extends React.Component<any, any> {
     const { data: projects } = this.props.projects
 
     if (loading) {
-      return <div>Loading...</div>
+      return <Loader />
     }
 
     if (!projects || !projects.length) {
@@ -25,18 +40,25 @@ export class ProjectsComponent extends React.Component<any, any> {
     }
 
     return (
-      <>
-        <button onClick={() => history.push('/add-project')}>Add project</button>
-        {projects.map((project) => (
-          <div key={project.id} className="project">
-            <div className="name">{project.name}</div>
-            <div className="actions">
-              <div className="edit-members">Add</div>
-              <div className="edit">Edit</div>
+      <div className="projects">
+        <h1>Projects</h1>
+        <button onClick={() => history.push(routePaths.private.addProject)}>Add Project</button>
+        <div className="projects-container">
+          {projects.map((project) => (
+            <div key={project.id} className="project">
+              <div className="name">{project.name}</div>
+              <div className="actions">
+                <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
+                  <FontAwesomeIcon icon={faUsers} />
+                </button>
+                <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
+                  <FontAwesomeIcon icon={faEdit} />
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </>
+          ))}
+        </div>
+      </div>
     )
   }
 }
