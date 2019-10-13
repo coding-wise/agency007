@@ -74,7 +74,7 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
             <div className="jump-station">
               <img alt="" className="tumbleweed" src={emptyIcon} />
             </div>
-            There are no projects yet.
+            There are no projects here yet.
           </div>
         )}
       </div>

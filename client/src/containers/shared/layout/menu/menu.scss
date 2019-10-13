@@ -24,6 +24,9 @@
 
   &.easter-egg:before {
     background-image: url(/daniel.png);
+    transform: scaleX(-1);
+    background-position: center;
+    background-size: 400px;
   }
 
   button {
