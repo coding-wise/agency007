@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../redux/projects'
 import { routePaths } from '../route-paths'
+import { Button } from '../shared/button/Button'
+import { Heading } from '../shared/heading/Heading'
 import { Loader } from '../shared/loader/Loader'
 import emptyIcon from './empty.svg'
 import './projects.scss'
@@ -40,10 +42,10 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
 
     return (
       <div className="projects">
-        <div className="heading">
+        <Heading>
           <h1>Projects</h1>
-          <button onClick={() => history.push(routePaths.private.addProject)}>Add Project</button>
-        </div>
+          <Button onClick={() => history.push(routePaths.private.addProject)}>Add Project</Button>
+        </Heading>
         {!!projectsList.length && (
           <div className="projects-container">
             {projectsList.map((project) => (
