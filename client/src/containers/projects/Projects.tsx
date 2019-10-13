@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../redux/projects'
 import { routePaths } from '../route-paths'
 import { Loader } from '../shared/loader/Loader'
+import emptyIcon from './empty.svg'
 import './projects.scss'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
@@ -35,16 +36,14 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
       return <Loader />
     }
 
-    if (!projects || !projects.length) {
-      return <div>You have no projects, create one first.</div>
-    }
+    const projectsList = (projects && projects.length) || []
 
     return (
       <div className="projects">
         <h1>Projects</h1>
         <button onClick={() => history.push(routePaths.private.addProject)}>Add Project</button>
         <div className="projects-container">
-          {projects.map((project) => (
+          {projectsList.map((project) => (
             <div key={project.id} className="project">
               <div className="name">{project.name}</div>
               <div className="actions">
@@ -58,6 +57,14 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
             </div>
           ))}
         </div>
+        {!projectsList.length && (
+          <div className="empty">
+            <div className="jump-station">
+              <img alt="" className="tumbleweed" src={emptyIcon} />
+            </div>
+            There are no projects yet.
+          </div>
+        )}
       </div>
     )
   }
