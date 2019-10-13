@@ -20,7 +20,7 @@ const Routes = () => {
       <ProtectedRoute exact path={routePaths.private.pending} component={PendingApproval} />
       <ProtectedRoute exact path={routePaths.private.projects} component={Projects} />
       <ProtectedRoute exact path={routePaths.private.addProject} component={AddProject} />
-      <ProtectedRoute exact path={routePaths.private.projectsEdit} component={Projects} />
+      <ProtectedRoute exact path={routePaths.private.projectsEdit} component={AddProject} />
       <ProtectedRoute exact path={routePaths.private.projectMembershipsEdit} component={ProjectMemberEdit} />
     </Switch>
   )
