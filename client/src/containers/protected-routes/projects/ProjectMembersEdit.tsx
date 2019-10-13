@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { RouteComponentProps } from 'react-router'
 import Select from 'react-select'
 import { bindActionCreators } from 'redux'
-import { getProjectAction } from '../../redux/projects'
-import { addMemberProjectAction } from '../../redux/projects/add-member-project'
-import { removeMemberProjectAction } from '../../redux/projects/remove-member-project'
-import { Loader } from '../shared/loader/Loader'
+import { getProjectAction } from '../../../redux/projects'
+import { addMemberProjectAction } from '../../../redux/projects/add-member-project'
+import { removeMemberProjectAction } from '../../../redux/projects/remove-member-project'
+import { Loader } from '../../shared/loader/Loader'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
 type State = ReturnType<typeof mapStateToProps>

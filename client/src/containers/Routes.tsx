@@ -5,10 +5,10 @@ import { PublicRoute } from './PublicRoute'
 import { Connect } from './connect/Connect'
 import { Login } from './connect/Login'
 import { Home } from './home/Home'
-import { ProjectMemberEdit } from './projects/ProjectMembersEdit'
-import { Projects } from './projects/Projects'
 import { PendingApproval } from './protected-routes/pending-approval/PendingApproval'
 import { AddProject } from './protected-routes/projects/AddProject'
+import { ProjectMemberEdit } from './protected-routes/projects/ProjectMembersEdit'
+import { Projects } from './protected-routes/projects/Projects'
 import { routePaths } from './route-paths'
 
 const Routes = () => {
