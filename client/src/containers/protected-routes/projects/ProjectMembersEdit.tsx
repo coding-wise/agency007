@@ -44,9 +44,9 @@ export class ProjectMemberEditComponent extends React.Component<Dispatchers & St
   }
 
   removeMember(membershipId: number) {
-    const { addMemberProject } = this.props
+    const { removeMemberProject } = this.props
 
-    addMemberProject(this.projectId, membershipId)
+    removeMemberProject(this.projectId, membershipId)
   }
 
   onChange = (_, valueMeta) => {
@@ -91,7 +91,8 @@ export class ProjectMemberEditComponent extends React.Component<Dispatchers & St
           <label>Pivotal</label>
           <Select
             onChange={this.onChange}
-            isMulti={true}
+            isMulti
+            isClearable={false}
             options={projectMembers.map((membership) => ({
               value: membership.id,
               label: membership.person.email,
