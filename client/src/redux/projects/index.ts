@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions'
 import { handleAddMemberProject } from './add-member-project'
+import { handleAddProject } from './add-project'
 import { handleGetProject } from './get-project'
 import { handleGetProjects } from './get-projects'
 import { handleRemoveMemberProject } from './remove-member-project'
@@ -19,6 +20,7 @@ export const projects = handleActions(
     ...handleGetProjects,
     ...handleAddMemberProject,
     ...handleRemoveMemberProject,
+    ...handleAddProject,
   },
   initialState,
 )

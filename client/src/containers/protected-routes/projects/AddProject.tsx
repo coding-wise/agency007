@@ -2,6 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import Select from 'react-select'
 import { bindActionCreators } from 'redux'
+import { addProjectAction } from '../../../redux/projects/add-project'
 import { getPivotalProjectsAction } from '../../../redux/projects/get-pivotal-projects'
 import { Loader } from '../../shared/loader/Loader'
 
@@ -19,6 +20,7 @@ class AddProjectComponent extends React.Component<Dispatchers & State, any> {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    this.props.addProject(this.state)
   }
 
   handleChange = (event) => {
@@ -69,6 +71,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getPivotalProjects: bindActionCreators(getPivotalProjectsAction, dispatch),
+    addProject: bindActionCreators(addProjectAction, dispatch),
   }
 }
 
