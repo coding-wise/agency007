@@ -30,10 +30,14 @@ enum Operation {
 }
 
 class AddProjectComponent extends React.Component<AddProjectProps, any> {
-  state = {
-    projectName: '',
-    pivotalId: undefined,
-    operation: Operation.create,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      projectName: (props.currentProject && props.currentProject.name) || '',
+      pivotalId: (props.currentProject && props.currentProject.pivotal[0]) || undefined,
+      operation: Operation.create,
+    }
   }
 
   componentDidMount() {
@@ -83,8 +87,9 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
     const {
       history,
       pivotalProjects: { loading, data },
-      currentProject: { name, pivotal },
     } = this.props
+
+    const { projectName, pivotalId } = this.state
 
     const { operation } = this.state
 
@@ -96,7 +101,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
         return { value: project.id, label: project.name, name: 'pivotalId' }
       })
 
-    const defaultOption = pivotal ? options.filter((option) => option.value === pivotal[0]) : ''
+    const defaultOption = pivotalId ? options.filter((option) => option.value === pivotalId) : ''
 
     return (
       <>
@@ -109,13 +114,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
         </Heading>
         <form onSubmit={this.handleSubmit}>
           <label>Name</label>
-          <input
-            name="projectName"
-            type="text"
-            value={this.state.projectName || name}
-            onChange={this.handleChange}
-            required
-          />
+          <input name="projectName" type="text" value={projectName} onChange={this.handleChange} required />
           <label>Pivotal</label>
           <Select
             defaultValue={defaultOption}
