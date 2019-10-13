@@ -86,6 +86,8 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
       currentProject: { name, pivotal },
     } = this.props
 
+    const { operation } = this.state
+
     if (loading) return <Loader />
 
     const options =
@@ -99,7 +101,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
     return (
       <>
         <Heading>
-          <h1>Add project</h1>
+          <h1>{operation === Operation.create ? 'Add' : 'Edit'} project</h1>
           <Button onClick={history.goBack}>
             <FontAwesomeIcon icon={faChevronLeft} />
             Back
