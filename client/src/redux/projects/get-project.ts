@@ -11,6 +11,7 @@ export const handleGetProject = {
   [getProjectAction.SUCCEEDED]: (state, action) => ({
     ...state,
     data: action.payload.data,
+    currentProject: action.payload.data,
   }),
   [getProjectAction.FAILED]: (state, action) => ({
     ...state,

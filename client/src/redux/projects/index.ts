@@ -5,6 +5,7 @@ import { handleGetProject } from './get-project'
 import { handleGetProjects } from './get-projects'
 import { handleRemoveMemberProject } from './remove-member-project'
 import { handleCurrentProject } from './set-current-project'
+import { handleUpdateProject } from './update-project'
 
 export * from './get-project'
 export * from './get-projects'
@@ -24,6 +25,7 @@ export const projects = handleActions(
     ...handleRemoveMemberProject,
     ...handleAddProject,
     ...handleCurrentProject,
+    ...handleUpdateProject,
   },
   initialState,
 )

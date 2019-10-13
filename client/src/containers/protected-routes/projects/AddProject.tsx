@@ -8,6 +8,7 @@ import { getProjectAction } from '../../../redux/projects'
 import { addProjectAction } from '../../../redux/projects/add-project'
 import { getPivotalProjectsAction } from '../../../redux/projects/get-pivotal-projects'
 import { clearCurrentProjectAction } from '../../../redux/projects/set-current-project'
+import { updateProjectAction } from '../../../redux/projects/update-project'
 import { routePaths } from '../../route-paths'
 import { Button } from '../../shared/button/Button'
 import { Heading } from '../../shared/heading/Heading'
@@ -43,7 +44,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
     } = this.props
 
     if (params.id) {
-      this.setState({ operation: Operation.update })
+      this.setState({ operation: Operation.update, id: params.id })
       !!currentProject && getProject(params.id)
     }
 
@@ -56,13 +57,13 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const { addProject, history } = this.props
+    const { addProject, history, updateProject } = this.props
     const { operation } = this.state
 
     if (operation === Operation.create) {
       addProject(this.state)
     } else {
-      // updateProject(this.state)
+      updateProject(this.state)
     }
 
     history.push(routePaths.private.projects)
@@ -93,7 +94,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
         return { value: project.id, label: project.name, name: 'pivotalId' }
       })
 
-    const defaultOption = pivotal ? options.filter((option) => option.value === pivotal.id) : ''
+    const defaultOption = pivotal ? options.filter((option) => option.value === pivotal[0]) : ''
 
     return (
       <>
@@ -141,6 +142,7 @@ const mapDispatchToProps = (dispatch) => {
     addProject: bindActionCreators(addProjectAction, dispatch),
     clearCurrentProject: bindActionCreators(clearCurrentProjectAction, dispatch),
     getProject: bindActionCreators(getProjectAction, dispatch),
+    updateProject: bindActionCreators(updateProjectAction, dispatch),
   }
 }
 
