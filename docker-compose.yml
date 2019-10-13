@@ -47,6 +47,8 @@ services:
       DATABASE_POOL_MIN: 0
       DATABASE_POOL_MAX: 10
       ENABLE_NODE_CLUSTER: 'false'
+      PIVOTAL_ACCOUNT_ID: 1115016
+      PIVOTAL_TOKEN: 2f9371864c6361cb94f714b8d973eace
 
   db:
     image: postgres:10.4
