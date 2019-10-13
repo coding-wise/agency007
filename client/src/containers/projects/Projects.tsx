@@ -36,27 +36,31 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
       return <Loader />
     }
 
-    const projectsList = (projects && projects.length) || []
+    const projectsList = projects && projects.length ? projects : []
 
     return (
       <div className="projects">
-        <h1>Projects</h1>
-        <button onClick={() => history.push(routePaths.private.addProject)}>Add Project</button>
-        <div className="projects-container">
-          {projectsList.map((project) => (
-            <div key={project.id} className="project">
-              <div className="name">{project.name}</div>
-              <div className="actions">
-                <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
-                  <FontAwesomeIcon icon={faUsers} />
-                </button>
-                <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
-                  <FontAwesomeIcon icon={faEdit} />
-                </button>
-              </div>
-            </div>
-          ))}
+        <div className="heading">
+          <h1>Projects</h1>
+          <button onClick={() => history.push(routePaths.private.addProject)}>Add Project</button>
         </div>
+        {!!projectsList.length && (
+          <div className="projects-container">
+            {projectsList.map((project) => (
+              <div key={project.id} className="project">
+                <div className="name">{project.name}</div>
+                <div className="actions">
+                  <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
+                    <FontAwesomeIcon icon={faUsers} />
+                  </button>
+                  <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
+                    <FontAwesomeIcon icon={faEdit} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
         {!projectsList.length && (
           <div className="empty">
             <div className="jump-station">
