@@ -62,7 +62,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
       })
 
     return (
-      <div>
+      <>
         <Heading>
           <h1>Add project</h1>
           <Button onClick={history.goBack}>
@@ -78,7 +78,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
 
           <Button type="submit">Save</Button>
         </form>
-      </div>
+      </>
     )
   }
 }

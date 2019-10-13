@@ -1,34 +1,52 @@
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { RouteComponentProps } from 'react-router'
+import { Redirect, RouteComponentProps } from 'react-router'
 import Select from 'react-select'
 import { bindActionCreators } from 'redux'
 import { getProjectAction } from '../../../redux/projects'
 import { addMemberProjectAction } from '../../../redux/projects/add-member-project'
 import { removeMemberProjectAction } from '../../../redux/projects/remove-member-project'
+import { routePaths } from '../../route-paths'
+import { Button } from '../../shared/button/Button'
+import { Heading } from '../../shared/heading/Heading'
 import { Loader } from '../../shared/loader/Loader'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
 type State = ReturnType<typeof mapStateToProps>
 type RouteParams = RouteComponentProps<{ id: string }>
+interface ReduxProps {
+  history: any
+}
 
-export class ProjectMemberEditComponent extends React.Component<Dispatchers & State & RouteParams, any> {
+export class ProjectMemberEditComponent extends React.Component<Dispatchers & State & RouteParams & ReduxProps, any> {
   get projectId() {
-    const { id } = this.props.match.params
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props
 
     return id
   }
 
   componentDidMount() {
-    this.props.getProject(this.projectId)
+    const { getProject } = this.props
+
+    getProject(this.projectId)
   }
 
   addMember(email: string) {
-    this.props.addMemberProject(this.projectId, email)
+    const { addMemberProject } = this.props
+
+    addMemberProject(this.projectId, email)
   }
 
   removeMember(membershipId: number) {
-    this.props.removeMemberProject(this.projectId, membershipId)
+    const { addMemberProject } = this.props
+
+    addMemberProject(this.projectId, membershipId)
   }
 
   onChange = (_, valueMeta) => {
@@ -42,39 +60,50 @@ export class ProjectMemberEditComponent extends React.Component<Dispatchers & St
     }
   }
 
+  handleSubmit = () => {}
+
   render() {
-    const { loading } = this.props.projects
-    const { data: project } = this.props.projects
+    const {
+      history,
+      projects: { loading, data: project },
+    } = this.props
 
     if (loading) {
       return <Loader />
     }
 
     if (!project) {
-      return <div>Project not found.</div>
+      return <Redirect to={routePaths.private.projects} />
     }
+
+    const projectMembers = (project && project.members && project.members.pivotal) || []
 
     return (
       <>
-        <h2>Adding members to {project.name} project</h2>
-        <div>
-          <h3>Pivotal</h3>
-
+        <Heading>
+          <h1>Project members</h1>
+          <Button onClick={history.goBack}>
+            <FontAwesomeIcon icon={faChevronLeft} />
+            Back
+          </Button>
+        </Heading>
+        <form onSubmit={this.handleSubmit}>
+          <label>Pivotal</label>
           <Select
             onChange={this.onChange}
             isMulti={true}
-            options={project.members.pivotal.map((membership) => ({
+            options={projectMembers.map((membership) => ({
               value: membership.id,
               label: membership.person.email,
             }))}
-            value={project.members.pivotal
+            value={projectMembers
               .filter((membership) => membership.selected)
               .map((membership) => ({
                 value: membership.id,
                 label: membership.person.email,
               }))}
           />
-        </div>
+        </form>
       </>
     )
   }
