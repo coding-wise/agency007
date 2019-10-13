@@ -96,7 +96,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
     const defaultOption = pivotal ? options.filter((option) => option.value === pivotal.id) : ''
 
     return (
-      <div>
+      <>
         <Heading>
           <h1>Add project</h1>
           <Button onClick={history.goBack}>
@@ -123,7 +123,7 @@ class AddProjectComponent extends React.Component<AddProjectProps, any> {
 
           <Button type="submit">Save</Button>
         </form>
-      </div>
+      </>
     )
   }
 }
