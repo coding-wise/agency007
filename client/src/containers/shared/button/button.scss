@@ -9,12 +9,14 @@
   padding: 10px 20px;
   display: flex;
   justify-content: center;
+  transition: background-color 0.4s;
 
   svg {
     margin-right: 10px;
   }
 
   &:hover {
+    transition: background-color 0.4s;
     background-color: #535355;
   }
 }

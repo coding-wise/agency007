@@ -33,9 +33,11 @@
     color: white;
     cursor: pointer;
     z-index: 2;
+    transition: background-color 0.4s;
 
     &:hover {
       background-color: #535355;
+      transition: background-color 0.4s;
     }
   }
 }
