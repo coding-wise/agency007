@@ -4,6 +4,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../../redux/projects'
+import { setCurrentProjectAction } from '../../../redux/projects/set-current-project'
 import { routePaths } from '../../route-paths'
 import { Button } from '../../shared/button/Button'
 import { Heading } from '../../shared/heading/Heading'
@@ -27,12 +28,17 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
     this.props.history.push(`/projects/${id}`)
   }
 
+  handleEdit = (project) => {
+    const { setCurrentProject } = this.props
+    setCurrentProject(project)
+    this.redirectToEditProject(project.id)
+  }
+
   render() {
     const {
-      projects: { loading },
+      projects: { loading, data: projects },
       history,
     } = this.props
-    const { data: projects } = this.props.projects
 
     if (loading) {
       return <Loader />
@@ -55,7 +61,7 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
                   <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
                     <FontAwesomeIcon icon={faUsers} />
                   </button>
-                  <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
+                  <button className="edit" onClick={() => this.handleEdit(project)}>
                     <FontAwesomeIcon icon={faEdit} />
                   </button>
                 </div>
@@ -85,6 +91,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getProjects: bindActionCreators(getProjectsAction, dispatch),
+    setCurrentProject: bindActionCreators(setCurrentProjectAction, dispatch),
   }
 }
 
