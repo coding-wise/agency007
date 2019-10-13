@@ -5,7 +5,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../redux/projects'
 import { routePaths } from '../route-paths'
+import { Button } from '../shared/button/Button'
+import { Heading } from '../shared/heading/Heading'
 import { Loader } from '../shared/loader/Loader'
+import emptyIcon from './empty.svg'
 import './projects.scss'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
@@ -35,29 +38,39 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
       return <Loader />
     }
 
-    if (!projects || !projects.length) {
-      return <div>You have no projects, create one first.</div>
-    }
+    const projectsList = projects && projects.length ? projects : []
 
     return (
       <div className="projects">
-        <h1>Projects</h1>
-        <button onClick={() => history.push(routePaths.private.addProject)}>Add Project</button>
-        <div className="projects-container">
-          {projects.map((project) => (
-            <div key={project.id} className="project">
-              <div className="name">{project.name}</div>
-              <div className="actions">
-                <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
-                  <FontAwesomeIcon icon={faUsers} />
-                </button>
-                <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
-                  <FontAwesomeIcon icon={faEdit} />
-                </button>
+        <Heading>
+          <h1>Projects</h1>
+          <Button onClick={() => history.push(routePaths.private.addProject)}>Add Project</Button>
+        </Heading>
+        {!!projectsList.length && (
+          <div className="projects-container">
+            {projectsList.map((project) => (
+              <div key={project.id} className="project">
+                <div className="name">{project.name}</div>
+                <div className="actions">
+                  <button className="edit-members" onClick={() => this.redirectToEditProjectMembers(project.id)}>
+                    <FontAwesomeIcon icon={faUsers} />
+                  </button>
+                  <button className="edit" onClick={() => this.redirectToEditProject(project.id)}>
+                    <FontAwesomeIcon icon={faEdit} />
+                  </button>
+                </div>
               </div>
+            ))}
+          </div>
+        )}
+        {!projectsList.length && (
+          <div className="empty">
+            <div className="jump-station">
+              <img alt="" className="tumbleweed" src={emptyIcon} />
             </div>
-          ))}
-        </div>
+            There are no projects yet.
+          </div>
+        )}
       </div>
     )
   }

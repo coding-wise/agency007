@@ -1,0 +1,20 @@
+.button-component {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 0;
+  background-color: #484349;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    background-color: #535355;
+  }
+}
