@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions'
+import { handleAddMemberProject } from './add-member-project'
 import { handleGetProject } from './get-project'
 import { handleGetProjects } from './get-projects'
-import { handleAddMemberProject } from './add-member-project'
 import { handleRemoveMemberProject } from './remove-member-project'
 
 export * from './get-project'

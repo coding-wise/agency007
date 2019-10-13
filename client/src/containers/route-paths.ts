@@ -6,6 +6,7 @@ export const routePaths = {
     root: '/logged-user',
     pending: '/pending-approval',
     projects: '/projects',
+    addProject: '/add-project',
     projectsEdit: '/projects/:id',
     projectMembershipsEdit: '/projects/:id/members',
   },

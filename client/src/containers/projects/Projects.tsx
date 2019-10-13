@@ -1,11 +1,12 @@
+import { faEdit, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getProjectsAction } from '../../redux/projects'
+import { routePaths } from '../route-paths'
 import { Loader } from '../shared/loader/Loader'
 import './projects.scss'
-import { faUsers, faEdit } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type Dispatchers = ReturnType<typeof mapDispatchToProps>
 type State = ReturnType<typeof mapStateToProps>
@@ -24,7 +25,10 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
   }
 
   render() {
-    const { loading } = this.props.projects
+    const {
+      projects: { loading },
+      history,
+    } = this.props
     const { data: projects } = this.props.projects
 
     if (loading) {
@@ -38,6 +42,7 @@ export class ProjectsComponent extends React.Component<Dispatchers & State & { h
     return (
       <div className="projects">
         <h1>Projects</h1>
+        <button onClick={() => history.push(routePaths.private.addProject)}>Add Project</button>
         <div className="projects-container">
           {projects.map((project) => (
             <div key={project.id} className="project">
