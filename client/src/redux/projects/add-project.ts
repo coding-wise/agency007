@@ -8,10 +8,6 @@ export const handleAddProject = {
     ...state,
     loading: true,
   }),
-  [addProjectAction.SUCCEEDED]: (state, action) => ({
-    ...state,
-    data: action.payload.data,
-  }),
   [addProjectAction.FAILED]: (state, action) => ({
     ...state,
     loading: false,
