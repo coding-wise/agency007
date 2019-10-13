@@ -9,11 +9,27 @@ type Dispatchers = ReturnType<typeof mapDispatchToProps>
 type State = ReturnType<typeof mapStateToProps>
 
 class AddProjectComponent extends React.Component<Dispatchers & State, any> {
+  state = {
+    projectName: '',
+    pivotalId: undefined,
+  }
   componentDidMount() {
     this.props.getPivotalProjects()
   }
 
-  handleSubmit = () => {}
+  handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
+  handleChange = (event) => {
+    const { name, value } = event.target
+    this.setState({ [name]: value })
+  }
+
+  handleSelectChange = (selectedValue) => {
+    const { name, value } = selectedValue
+    this.setState({ [name]: value })
+  }
 
   render() {
     const {
@@ -22,24 +38,19 @@ class AddProjectComponent extends React.Component<Dispatchers & State, any> {
 
     if (loading) return <Loader />
 
-    const options = data.map((project) => {
-      return { value: project.id, label: project.name }
-    })
+    const options =
+      data &&
+      data.map((project) => {
+        return { value: project.id, label: project.name, name: 'pivotalId' }
+      })
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit} noValidate>
-          <label>Name</label>
-          <input name="name" type="text" />
+        <form onSubmit={this.handleSubmit}>
+          <label>Project Name</label>
+          <input name="projectName" type="text" value={this.state.projectName} onChange={this.handleChange} required />
           <label>Pivotal</label>
-          <Select
-            defaultValue={options[0]}
-            name="colors"
-            options={options}
-            className="basic-multi-select"
-            classNamePrefix="select"
-          />
-
+          <Select defaultValue="" options={options} classNamePrefix="select" onChange={this.handleSelectChange} />
           <button color="btn btn-primary" type="submit">
             Save
           </button>
