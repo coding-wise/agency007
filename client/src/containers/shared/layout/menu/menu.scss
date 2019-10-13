@@ -22,6 +22,10 @@
     z-index: 1;
   }
 
+  &.easter-egg:before {
+    background-image: url(/daniel.png);
+  }
+
   button {
     width: 100%;
     height: 50px;
